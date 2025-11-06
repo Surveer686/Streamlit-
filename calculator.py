@@ -2,8 +2,28 @@ import streamlit as st
 from datetime import date
 import math
 
+# ✅ Hide Streamlit default UI elements
+custom_css = """
+<style>
+/* Hide Main Menu + Header toolbar + Bottom-right widgets */
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+footer {visibility: hidden;}
+
+/* Hide floating toolbar buttons */
+.st-emotion-cache-1wbqy5l {display: none !important;} 
+.st-emotion-cache-1v0mbdj {display: none !important;} 
+
+/* Hide GitHub + Fork buttons */
+.stActionButton {display: none !important;}
+a[href*="github"] {display: none !important;}
+</style>
+"""
+st.markdown(custom_css, unsafe_allow_html=True)
+
 # App title
 st.title("All-in-One Smart Calculator")
+
 
 # Tabs for different tools
 basic_tab, sci_tab, age_tab = st.tabs([
