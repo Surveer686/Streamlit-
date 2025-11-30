@@ -69,4 +69,5 @@ st.dataframe(
     filtered[["Country", "City", "AQI Value", "Dominant Pollutant"]],
     use_container_width=True    
 )
-
+csv = filtered.to_csv(index=False).encode("utf-8")
+st.download_button("Download filtered data as CSV", csv, "filtered_aqi.csv", "text/csv")
